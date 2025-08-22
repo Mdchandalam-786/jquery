@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            margin: 10px;
+        }
+    </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <title>jquery</title>
+</head>
+<body>
+    <div></div>
+    <button id="myButton">Click me!</button>
+    <button id="button">Click me too!</button>
+    <script>
+        $(document).ready(function() {
+            $(this).keypress(function() {
+                $("div:first").fadeToggle(1000);
+            });
+        });
+    </script>
+</body>
+</html>
