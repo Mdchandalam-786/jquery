@@ -1,28 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Calculator</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
-        div{
-            width: 100px;
-            height: 100px;
-            background-color: lightblue;
-            margin: 10px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            padding: 20px;
+        }
+        
+        .calculator {
+            width: 320px;
+            background-color: #22252d;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .display {
+            padding: 25px 20px;
+            background-color: #2a2d37;
+            text-align: right;
+            color: white;
+        }
+        
+        input{
+            padding:20px 8px;
+            color: white;
+            border: none;
+            background-color: #2a2d37;
+            min-height: 24px;
+            font-size: 18px;
+            color: rgba(20, 18, 18, 0.7);
+            margin-bottom: 5px;
+            overflow: hidden;
+        }
+        
+        .current-operand {
+            min-height: 40px;
+            font-size: 36px;
+            font-weight: 500;
+            overflow: hidden;
+        }
+        
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 12px;
+            padding: 20px;
+            background-color: #22252d;
+        }
+        
+        button {
+            border: none;
+            outline: none;
+            padding: 18px 0;
+            border-radius: 12px;
+            font-size: 20px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        button:active {
+            transform: scale(0.95);
+        }
+        
+        .number, .decimal {
+            background-color: #2a2d37;
+            color: white;
+        }
+        
+        .operator {
+            background-color: #2a2d37;
+            color: #3ddc97;
+        }
+        
+        .equals {
+            background-color: #3ddc97;
+            color: white;
+        }
+        
+        .clear, .backspace {
+            background-color: #ff6b6b;
+            color: white;
+        }
+        
+        .zero {
+            grid-column: span 2;
+        }
+        
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 15px;
+            font-size: 14px;
+            background-color: #2a2d37;
         }
     </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-    <title>jquery</title>
 </head>
 <body>
-    <div></div>
-    <button id="myButton">Click me!</button>
-    <button id="button">Click me too!</button>
-    <script>
-        $(document).ready(function() {
-            $(this).keypress(function() {
-                $("div:first").fadeToggle(1000);
-            });
-        });
+    <div class="calculator">
+        <div class="display">
+            <input type="text" placeholder="0">
+        </div>
+        <div class="buttons">
+            <button class="clear">C</button>
+            <button class="operator" data-operation="/">/</button>            
+            <button class="number" data-number="7">7</button>
+            <button class="number" data-number="8">8</button>
+            <button class="number" data-number="9">9</button>
+            <button class="operator" data-operation="*">X</button>
+            
+            <button class="number" data-number="4">4</button>
+            <button class="number" data-number="5">5</button>
+            <button class="number" data-number="6">6</button>
+            <button class="operator" data-operation="-">-</button>
+            
+            <button class="number" data-number="1">1</button>
+            <button class="number" data-number="2">2</button>
+            <button class="number" data-number="3">3</button>
+            <button class="operator" data-operation="+">+</button>
+            
+            <button class="number zero" data-number="0">0</button>
+            <button class="equals">=</button>
+        </div>
+        <div class="footer">
+            nokia 1332
+        </div>
+    </div>
+     <script>
+        let box = document.querySelector("input");
+        let numBtns = document.querySelectorAll(".number");
+        let oprBtns = document.querySelectorAll(".operator");
+        let result = "";
+        numBtns.forEach(
+            (btn) => {
+                btn.addEventListener("click", appendNum);
+            }
+        )
+        oprBtns.forEach(
+            (btn) => {
+                btn.addEventListener("click", appendOpr);
+            }
+        )
+
+        function appendNum() {
+            result += event.srcElement.innerHTML;
+            box.value = result;
+        }
+
+        function appendOpr() {
+            result += event.srcElement.innerHTML;
+            box.value = result;
+        }
+
+        document.querySelector(".solve").addEventListener("click",
+            () => {
+                result = eval(result);
+                box.value = result;
+
+            }
+        )
+
+        document.querySelector(".clr").addEventListener("click",
+            () => {
+                result = "";
+                box.value = result;
+            }
+        )
     </script>
 </body>
 </html>
