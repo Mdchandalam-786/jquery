@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        // animate
+        $("#click").click(function(){
+            $("p").css(
+                {
+                    textShadow: '10px 10px 10px black',
+                    marginLeft: '70vh'
+                },7000)
+        })
+    })
+        $("#stop").click(function(){
+            $("p").stop()
+        })
+</script>
+    <button id="click">click</button>
+    <button id="stop">stop</button>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur vero, molestiae harum, adipisci praesentium aspernatur nam excepturi saepe natus quod libero eaque culpa omnis autem aliquid ducimus id? Hic, in.</p>
+</body>
+</html>
