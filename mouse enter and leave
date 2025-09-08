@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>mouse property</title>
+</head>
+<body>
+<button id="dbl">double click</button>
+<button id="enter"> mouse enter</button>
+<button id="leave">mouse leave</button>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("dbl").dblclick(function(){
+			alert("this is double click")
+		})
+		$("enter").mouseenter(function(){
+			alert("this is mouse enter")
+		})
+		$("leave").mouseleave(function(){
+			alert("this is mouse leave")
+		})
+	})
+</script>
+</html>
