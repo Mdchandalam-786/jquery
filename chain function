@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<p id="p1">this is text</p>
+<p>this is text</p>
+<p>this is text</p>
+<button>click</button>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("button").click(function(){
+			$("#p1").show().fadeTo(0.5).css("background-color","red","color","white");
+		})
+	})
+</script>
+</body>
+</html>
