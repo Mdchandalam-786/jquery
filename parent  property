@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		.great-grand-parent, .grand-parent, ul{
+			display: block;
+			border:2px solid black;
+			color:white;
+			padding:5px;
+			margin:50px;
+		}
+		.great-grand-parent{
+			background-color:lemonchiffon;
+		}
+		.grand-parent{
+			background-color:violet;
+		}
+		ul{
+			background-color:crimson;
+		}
+		li{
+			background-color:lightgrey;
+			color: black;
+			width:80px;
+			margin-left:10px;
+			height:30px;
+			display:inline-block;
+		}
+	</style>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+<div class="great-grand-parent" style="width:600px;">main-parent
+	<div class="grand-parent">parent
+		<ul class="parent">
+			<li class="child_one">child_one</li>
+			<li class="child_two">child_two</li>
+			<li class="child_three">child_three</li>
+			<li class="child_four">child_four</li>
+		</ul>
+	</div>
+</div>
+<br>
+<button class="btn">parent</button>
+<button class="btn2">parents</button>
+<button class="btn3">parents Until</button>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(".btn").click(function(){
+			$(".child_two").parent().css("background-color","blue");
+		});
+		$(".btn2").click(function(){
+			$(".child_two").parents().css("background-color","blue");
+		});
+		$(".btn").click(function(){
+			$("li").parentsUntill(".great-grand-parent").css("background-color","cyan")
+		});
+	});
+</script>
+</body>
+</html>
