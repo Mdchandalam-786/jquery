@@ -66,11 +66,13 @@
 			$(".great-grand-parent").find(".child_four").css("background-color","blue")
 		});
 		//siblings
-
+		$(".child_two").nextUntil(".child_three").css("background-color","brown");
+		$(".parent").prevUntil(".child_two").css("background-color","black");
+		$(".child_five").nextAll().css("background-color","brown");
+		$(".child_six").prevAll().css("background-color","red");
 		$(".child_six").prev().css("background-color","orange");
 		$(".child_five").next().css("background-color","yellow");
 		$(".child_three").siblings().css("background-color","pink");
-
 	});
 </script>
 </body>
