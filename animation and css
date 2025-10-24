@@ -1,29 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=`, initial-scale=1.0">
-    <title>Document</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+    div{
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+        position: relative; 
+    }
+</style>
 </head>
 <body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script>
-    $(document).ready(function(){
-        // animate
-        $("#click").click(function(){
-            $("p").css(
-                {
-                    textShadow: '10px 10px 10px black',
-                    marginLeft: '70vh'
-                },7000)
-        })
-    })
-        $("#stop").click(function(){
-            $("p").stop()
-        })
-</script>
-    <button id="click">click</button>
-    <button id="stop">stop</button>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur vero, molestiae harum, adipisci praesentium aspernatur nam excepturi saepe natus quod libero eaque culpa omnis autem aliquid ducimus id? Hic, in.</p>
+
+<button>Start Animation</button>
+<div></div>
+<script> 
+$(document).ready(function(){    
+    //  var div = $("div");
+  $("button").click(function(){
+    $("div").animate({height: '300px', opacity: '0.4'}, "slow");
+    $("div").css({width: '300px', opacity: '0.5',backgroundColor: 'red'}, "fast");
+    $("div").animate({height: '100px', opacity: '0.4'}, "slow");
+    $("div").animate({width: '100px', opacity: '0.5'},100);
+  });
+});
+</script> 
 </body>
 </html>
