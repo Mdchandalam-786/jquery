@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #div1{
+            height: 150px;
+            color: white;
+            font-weight: bold;
+            background-color: lightblue;
+            border: 2px solid blue;
+            width: 300px;
+        }
+        p{
+            color: darkblue;
+            font-weight: bold;}
+    </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+<div id="div1">
+This is some text in the div.
+<p>This is a paragraph in the div.</p>
+<p>This is another paragraph in the div.</p>
+
+</div>
+<br>
+<button id="remove">Remove div element</button>
+<button id="empty">Empty div element</button>
+<script>
+$(document).ready(function(){
+  $("#remove").click(function(){
+    $("#div1").remove();
+  });
+
+  $("#empty").click(function(){
+    $("#div1").empty();
+  });
+});
+</script>
+</body>
+</html>
