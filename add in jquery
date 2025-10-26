@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+<p>append() - Inserts content at the end of the selected elements</p>
+<p>it is append() property.</p>
+
+<ul>
+  <li>prepend</li>
+  <li>append</li>
+  <li>before</li>
+  <li>after</li>
+</ul>
+
+<button id="btn1">Append text</button>
+<button id="btn2">Append list items</button>
+<script>
+$(document).ready(function(){
+  $("#btn1").click(function(){
+    $("ul").after("<li>append</li>");
+  });
+
+  $("#btn2").click(function(){
+    $("ul").prepend("<li>pre append</li>");
+  });
+});
+</script>
+</body>
+</html>
