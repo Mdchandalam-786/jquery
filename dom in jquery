@@ -7,11 +7,11 @@
 <body>
 
 <p id="test">This is some <b>bold</b> text in a paragraph.</p>
-<p>Name: <input type="text" id="test"></p>
+<p>Name: <input type="text" id="te"></p>
 
 <button id="btn1">Show Text</button>
 <button id="btn2">Show HTML</button>
-<button>show value</button>
+<button id="btn3">show value</button>
 <a href="https://github.com/Mdchandalam-786/jquery">github.com</a>
 <button id="attr">attr button</button>
 <script>
@@ -22,11 +22,11 @@ $(document).ready(function(){
   $("#btn2").click(function(){
     alert("HTML: " + $("#test").html());
   });
-  $("button").click(function(){
-    alert("change a hyperlink" + $("#test").val());
+  $("#btn3").click(function(){
+    alert($("#te").val());
   });
-   $("button").click(function(){
-    $("#w3s").attr("href", "https://www.w3schools.com/jquery/");
+   $("#attr").click(function(){
+    $("a").attr("href", "https://www.w3schools.com/jquery/");
   });
 });
 </script>
