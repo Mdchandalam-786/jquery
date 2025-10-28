@@ -1,34 +1,99 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
+	<style type="text/css">
+		.great-grand-parent, .grand-parent, ul{
+			display: block;
+			border:2px solid black;
+			color:white;
+			padding:5px;
+			margin:50px;
+		}
+		.great-grand-parent{
+			background-color:lemonchiffon;
+		}
+		.grand-parent{
+			background-color:violet;
+		}
+		ul{
+			background-color:crimson;
+		}
+		li{
+			background-color:lightgrey;
+			color: black;
+			width:80px;
+			margin-left:10px;
+			height:30px;
+			display:inline-block;
+		}
+	</style>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
+<div class="great-grand-parent" style="width:600px;">main-parent
+	<div class="grand-parent">parent
+		<ul class="parent">
+			<li class="child_one">child_one</li>
+			<li class="child_two">child_two</li>
+			<li class="child_three">child_three</li>
+			<li class="child_four">child_four</li>
+			<li class="child_five">child_five</li>
+			<li class="child_six">child_six</li>
+		</ul>
+	</div>
+</div>
+<br>
+<button class="btn">parent</button>
+<button class="btn2">parents</button>
+<button class="btn3">parents Until</button>
+<button class="btn4">find</button>
+<button class="btn5">siblings</button>
+<button class="btn6">next</button>
+<button class="btn7">prev</button>
+<button class="btn8">nextAll</button>
+<button class="btn9">prevAll</button>
+<button class="btn10">nextUntil</button>
+<button class="btn11">prevUntil</button>
 
-<p id="test">This is some <b>bold</b> text in a paragraph.</p>
-<p>Name: <input type="text" id="te"></p>
-
-<button id="btn1">Show Text</button>
-<button id="btn2">Show HTML</button>
-<button id="btn3">show value</button>
-<a href="https://github.com/Mdchandalam-786/jquery">github.com</a>
-<button id="attr">attr button</button>
-<script>
-$(document).ready(function(){
-  $("#btn1").click(function(){
-    alert("Text: " + $("#test").text());
-  });
-  $("#btn2").click(function(){
-    alert("HTML: " + $("#test").html());
-  });
-  $("#btn3").click(function(){
-    alert($("#te").val());
-  });
-   $("#attr").click(function(){
-    $("a").attr("href", "https://www.w3schools.com/jquery/");
-  });
-});
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(".btn").click(function(){
+			$(".child_two").parent().css("background-color","blue");
+		});
+		$(".btn2").click(function(){
+			$(".child_two").parents().css("background-color","blue");
+		});
+		$(".btn3").click(function(){
+			$(".child_two").parentsUntil().css("background-color","cyan")
+		});
+		$(".btn4").click(function(){
+			$(".great-grand-parent").find(".child_four").css("background-color","blue")
+		});
+		$(".btn5").click(function(){
+			$(".child_three").siblings().css("background-color","pink");
+		});
+		$(".btn6").click(function(){
+			$(".child_five").next().css("background-color","yellow");
+		});
+		$(".btn7").click(function(){
+			$(".child_six").prev().css("background-color","orange");
+		});
+		$(".btn8").click(function(){
+			$(".child_five").nextAll().css("background-color","brown");
+		});
+		$(".btn9").click(function(){
+			$(".child_six").prevAll().css("background-color","red");
+		});
+		$(".btn10").click(function(){
+			$(".child_two").nextUntil().css("background-color","brown");
+		});
+		$(".btn11").click(function(){
+			$(".child_six").prevUntil().css("background-color","black");
+		});
+	});
 </script>
 </body>
 </html>
